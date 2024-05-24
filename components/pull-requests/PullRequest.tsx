@@ -1,17 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import Avatar from "./Avatar";
-import { Colors } from "@/constants/colors";
 import dayjs from "dayjs";
 
-interface PullRequestProps {
-  title: string;
-  description: string;
-  username: string;
-  author: string;
-  createdAt: string;
-  imageUrl?: string;
-}
+import { Colors } from "@/constants/colors";
+import { IPullRequest } from "@/types";
+import Avatar from "../Avatar";
+
+type PullRequestProps = Omit<IPullRequest, "url">;
 
 export default function PullRequest(props: PullRequestProps) {
   const { title, description, imageUrl, username, author, createdAt } = props;

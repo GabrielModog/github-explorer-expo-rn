@@ -1,18 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
 
-import Avatar from "./Avatar";
+import Avatar from "../Avatar";
 import { Colors } from "@/constants/colors";
+import { IRepository } from "@/types";
 
-interface RepositoryProps {
-  title: string;
-  description: string;
-  forks: number;
-  stars: number;
-  username: string;
-  author: string;
-  imageUrl?: string;
-}
+type RepositoryProps = IRepository;
 
 export default function Repository(props: RepositoryProps) {
   const { title, description, imageUrl, forks, stars, username, author } =
