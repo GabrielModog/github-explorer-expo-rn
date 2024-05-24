@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 import { Colors } from "@/constants/colors";
 import useRepositories from "@/hooks/useRepositories";
 import RepositoryList from "@/components/repositories/RepositoryList";
-import { HandleNavigationFunc } from "@/types";
+import { HandleNavigationFunc } from "@/types/common";
 
 export default function Index() {
   const router = useRouter();

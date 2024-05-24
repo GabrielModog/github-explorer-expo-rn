@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import dayjs from "dayjs";
 
 import { Colors } from "@/constants/colors";
-import { IPullRequest } from "@/types";
+import { IPullRequest } from "@/types/pull-request";
 import Avatar from "../Avatar";
 
 type PullRequestProps = Omit<IPullRequest, "url">;

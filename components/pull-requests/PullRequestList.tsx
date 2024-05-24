@@ -7,7 +7,7 @@ import {
 import { openBrowserAsync } from "expo-web-browser";
 
 import { Colors } from "@/constants/colors";
-import { IPullRequest } from "@/types";
+import { IPullRequest } from "@/types/pull-request";
 import PullRequest from "./PullRequest";
 
 interface PullRequestListProps {

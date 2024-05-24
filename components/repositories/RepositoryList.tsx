@@ -6,7 +6,8 @@ import {
 } from "react-native";
 
 import { Colors } from "@/constants/colors";
-import { HandleNavigationFunc, IRepository } from "@/types";
+import { HandleNavigationFunc } from "@/types/common";
+import { IRepository } from "@/types/repository";
 import Repository from "./Repository";
 
 interface RepositoryListProps {

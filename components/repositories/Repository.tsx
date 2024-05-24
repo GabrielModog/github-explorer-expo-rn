@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import Avatar from "../Avatar";
 import { Colors } from "@/constants/colors";
-import { IRepository } from "@/types";
+import { IRepository } from "@/types/repository";
 
 type RepositoryProps = IRepository;
 
