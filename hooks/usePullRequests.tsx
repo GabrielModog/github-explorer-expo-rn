@@ -11,15 +11,17 @@ interface UsePullRequests {
 export default function usePullRequests(props: UsePullRequests) {
   const { repositoryName, username } = props;
 
+  const [repoState, setRepoState] = useState<"OPEN" | "CLOSED">("OPEN");
   const [page, setPage] = useState<string | null>(null);
   const [pullsRequestsList, setPullRequests] = useState<any[]>([]);
 
-  const [result] = useQuery({
+  const [result, reexecuteQuery] = useQuery({
     query: REPOSITORY_SCHEMA,
     variables: {
       nextPage: page,
       repositoryName,
       username,
+      state: repoState,
     },
   });
 
@@ -47,6 +49,18 @@ export default function usePullRequests(props: UsePullRequests) {
     if (hasNextPage) setPage(endCursor);
   }
 
+  function handleOpenTab() {
+    setPullRequests([]);
+    setRepoState("OPEN");
+    reexecuteQuery();
+  }
+
+  function handleCloseTab() {
+    setPullRequests([]);
+    setRepoState("CLOSED");
+    reexecuteQuery();
+  }
+
   useEffect(() => {
     if (result.data?.repository.pullRequests.nodes) {
       setPullRequests((prev) => [
@@ -60,6 +74,9 @@ export default function usePullRequests(props: UsePullRequests) {
     pullRequests,
     repositoryInfo,
     handleEndReached,
+    handleOpenTab,
+    handleCloseTab,
+    repoState,
     fetching: result.fetching,
   };
 }

@@ -1,5 +1,4 @@
-import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
-import { openBrowserAsync } from "expo-web-browser";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 import PRCounter from "@/components/pull-requests/PRCounter";
@@ -11,14 +10,20 @@ import PullRequestList from "@/components/pull-requests/PullRequestList";
 
 export default function Repository() {
   const navigation = useNavigation();
-  const router = useRouter();
   const { repositoryName, username } = useLocalSearchParams();
 
-  const { pullRequests, repositoryInfo, handleEndReached, fetching } =
-    usePullRequests({
-      repositoryName: repositoryName as string,
-      username: username as string,
-    });
+  const {
+    pullRequests,
+    repositoryInfo,
+    handleEndReached,
+    handleOpenTab,
+    handleCloseTab,
+    repoState,
+    fetching,
+  } = usePullRequests({
+    repositoryName: repositoryName as string,
+    username: username as string,
+  });
 
   const handleGoBackNavigation = () => navigation.goBack();
 
@@ -31,8 +36,11 @@ export default function Repository() {
       <View style={styles.header}>
         {repositoryInfo && (
           <PRCounter
+            state={repoState}
             open={repositoryInfo.open.totalCount}
             closed={repositoryInfo.closed.totalCount}
+            handleOpenTab={handleOpenTab}
+            handleCloseTab={handleCloseTab}
           />
         )}
       </View>
