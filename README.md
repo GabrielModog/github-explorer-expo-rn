@@ -18,6 +18,26 @@ Before running follow the instructions below.
     npx expo start
    ```
 
+## Running tests
+
+```bash
+   yarn test
+```
+
+And also to run e2e tests:
+
+```bash
+   yarn e2e
+```
+
+`   Only will work for android`
+
+## What was used?
+
+- urql
+- dayjs
+- @testing-library/react-native
+
 ## Disclaimer
 
 - This wasn't properly tested in iOS, so will be a little awkward.
