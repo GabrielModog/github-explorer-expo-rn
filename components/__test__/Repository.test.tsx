@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react-native";
 
-import Repository from "../Repository";
+import Repository from "../repositories/Repository";
 
 const repository_mock = {
   title: "Lorem Ispum",

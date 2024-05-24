@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react-native";
 
-import PullRequest from "../PullRequest";
+import PullRequest from "../pull-requests/PullRequest";
 
 const repository_mock = {
   title: "Lorem Ispum",
